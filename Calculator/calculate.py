@@ -2,6 +2,8 @@ from tkinter import END, Tk, Canvas, Entry, Text, Button, PhotoImage
 
 
 def main():
+    
+    # creating various buttons in calculator
     button_image_1 = PhotoImage(
         file="assets/button_1.png")
     button_1 = Button(
@@ -307,23 +309,29 @@ def main():
         width=61.10302734375,
         height=94.2828369140625,
     )
+    
     window.resizable(False, False)
     window.mainloop()
 
-
+    
+# function to display numbers or operators on the calculator display
 def button_click(num):
     current = display.get()
     display.insert(0 + len(current), str(num))
 
-
+    
+# function to clear claculator display
 def clear():
     display.delete(0, END)
 
-
+    
+# function to delete the last entered number
 def back():
     length = len(display.get())
     display.delete(length - 1, length)
 
+
+# function to claculate the expression
 def operate():
     exp = display.get()
     try:
@@ -335,9 +343,11 @@ def operate():
 
 
 if __name__ == '__main__':
-
+    
+    #intializing the tkinter module
     window = Tk()
-
+    
+    # configuring the app window
     window.geometry("347x566")
     window.configure(bg="#000000")
     window.title('GS Calculator')
@@ -361,7 +371,8 @@ if __name__ == '__main__':
         1150.0,
         fill="#17181A",
         outline="")
-
+       
+    # making the calculator display
     entry_image_1 = PhotoImage(
         file="assets/entry_1.png")
     entry_bg_1 = canvas.create_image(
@@ -383,5 +394,6 @@ if __name__ == '__main__':
         width=304.0,
         height=94.0,
     )
-
+    
+    # calling the main function
     main()
